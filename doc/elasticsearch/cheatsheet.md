@@ -1,4 +1,4 @@
-# Elasticsearch Cheatsheet:
+# Elasticsearch Cheatsheet
 
 | Operation | Browser URL | Curl Command | Description |
 | ----------|-------------|--------------|-------------|
