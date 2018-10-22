@@ -1,1 +1,1 @@
-# elk
+# ELK Stack Knowledge Base
