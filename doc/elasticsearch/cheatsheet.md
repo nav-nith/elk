@@ -23,15 +23,14 @@
 | List Shard Allocation with Reason || http://[ELASTICSEARCH-HOST]:9200/_cat/shards?h=index,shard,prirep,state,unassigned.reason |``curl -XGET http://[ELASTICSEARCH-HOST]:9200/_cat/shards?h=index,shard,prirep,state,unassigned.reason``||
 | Get Detailed on Shard Allocation issues || http://[ELASTICSEARCH-HOST]:9200/_cluster/allocation/explain?pretty |``curl -XGET http://[ELASTICSEARCH-HOST]:9200/_cluster/allocation/explain?pretty``||
 | Manage Number of Shard Replicas |||``curl -XPUT http://[ELASTICSEARCH-HOST]:9200/[INDEX-NAME]/_settings -H 'Content-Type: application/json' -d '{"number_of_replicas": [REPLICA-COUNT]}'``||
-| Disable Shard Allocation Temporary |||``curl -XPUT http://[ELASTICSEARCH-HOST]:9200/_cluster/settings -H 'Content-Type: application/json' -d '{ "transient": {"cluster.routing.allocation.enable": "none"}}'``||
-| Disable Shard Allocation Permanent |||``curl -XPUT http://[ELASTICSEARCH-HOST]:9200/_cluster/settings -H 'Content-Type: application/json' -d '{ "persistent": {"cluster.routing.allocation.enable": "none"}}'``||
-| Enable Shard Allocation Temporary |||``curl -XPUT http://[ELASTICSEARCH-HOST]:9200/_cluster/settings -H 'Content-Type: application/json' -d '{ "transient": {"cluster.routing.allocation.enable": "null"}}'``||
-| Enable Shard Allocation Permanent |||``curl -XPUT http://[ELASTICSEARCH-HOST]:9200/_cluster/settings -H 'Content-Type: application/json' -d '{ "persistent": {"cluster.routing.allocation.enable": "null"}}'``||
+| Disable Shard Allocation |||``curl -XPUT http://[ELASTICSEARCH-HOST]:9200/_cluster/settings -H 'Content-Type: application/json' -d '{ "[UPDATE-TYPE]": {"cluster.routing.allocation.enable": "none"}}'``||
+| Enable Shard Allocation Temporary |||``curl -XPUT http://[ELASTICSEARCH-HOST]:9200/_cluster/settings -H 'Content-Type: application/json' -d '{ "[UPDATE-TYPE]": {"cluster.routing.allocation.enable": "null"}}'``||
 | Modify Shard Allocation Delay |||``curl -XPUT http://[ELASTICSEARCH-HOST]:9200/[INDEX-NAME]/_settings' -H 'Content-Type: application/json' -d '{"settings": {"index.unassigned.node_left.delayed_timeout": "[DELAY-TIME]s"}}'``||
 
 | Option | Description |
 |--------|-------------|
 | [ELASTICSEARCH-HOST] | |
+| [UPDATE-TYPE] | Settings updated can either be *persistent* (applied across restarts) or *transient* (will not survive a full cluster restart) |
 | [INDEX-NAME] | |
 | [DOC-TYPE] | |
 | [DELAY-TIME] | |
