@@ -1,7 +1,7 @@
 # Elasticsearch Cheatsheet
 
 | Operation | Descreption |Browser URL | Curl Command | Responce |
-| ----------|-------------|--------------|-------------|
+| ----------|-------------|------------|--------------|----------|
 | Check Elasticsearch Status || http://[ELASTICSEARCH-HOST]:9200 | ``curl -XGET http://[ELASTICSEARCH-HOST]:9200`` ||
 | Check Cluster Health || http://[ELASTICSEARCH-HOST]:9200/_cluster/health | ``curl -XGET http://[ELASTICSEARCH-HOST]:9200/_cluster/health`` ||
 | Check Recovery Status || http://[ELASTICSEARCH-HOST]:9200/_cat/recovery | ``curl -XGET http://[ELASTICSEARCH-HOST]:9200/_cat/recovery"`` ||
@@ -20,6 +20,7 @@
 | Manage Number of Shard Replicas || curl -XPUT http://[ELASTICSEARCH-HOST]:9200/[INDEX-NAME]/_settings -H 'Content-Type: application/json' -d '{"number_of_replicas": [REPLICA-COUNT]}'||
 
 | Option | Descreption |
+|--------|-------------|
 | [ELASTICSEARCH-HOST] | |
 | [INDEX-NAME] | |
 | [DOC-TYPE] | |
