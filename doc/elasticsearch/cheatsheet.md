@@ -23,13 +23,13 @@
 | Check Cluster Health || http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/health |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/health``||
 | Get Cluster Nodes || http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/nodes |``curl XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/nodes``||
 | Get Cluster Settings || http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/settings |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/settings``||
-| Perform Synched Flush || http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_flush/synced |``curl -XPOST "[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_flush/synced"``||
 
 ## Index Operations
 | Operation | Description |Browser URL | Curl Command | Responce |
 | ----------|-------------|------------|--------------|----------|
 | Check Index Recovery Status || http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/recovery |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/recovery"``||
 | List Indexes || http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/indices |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/indices``||
+| Perform Synched Flush on Indexes || http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_flush/synced |``curl -XPOST "[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_flush/synced"``||
 | Delete Index/Document |||``curl -XDELETE  http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/[INDEX-NAME]/[DOC-TYPE]/[doc-id]``||
 
 ## Shard Operations
