@@ -3,9 +3,14 @@
 | Operation | Description |Browser URL | Curl Command | Responce |
 | ----------|-------------|------------|--------------|----------|
 | Check Elasticsearch Status || http://[ELASTICSEARCH-HOST]:9200 |``curl -XGET http://[ELASTICSEARCH-HOST]:9200``||
+
+## Cluster Operations
+| Operation | Description |Browser URL | Curl Command | Responce |
+| ---------------------|-------------|------------|--------------|----------|
 | Check Cluster Health || http://[ELASTICSEARCH-HOST]:9200/_cluster/health |``curl -XGET http://[ELASTICSEARCH-HOST]:9200/_cluster/health``||
-| Check Recovery Status || http://[ELASTICSEARCH-HOST]:9200/_cat/recovery |``curl -XGET http://[ELASTICSEARCH-HOST]:9200/_cat/recovery"``||
-| List Nodes || http://[ELASTICSEARCH-HOST]:9200/_cat/nodes |``curl XGET http://[ELASTICSEARCH-HOST]:9200/_cat/nodes``||
+| Get Cluster Nodes     || http://[ELASTICSEARCH-HOST]:9200/_cat/nodes |``curl XGET http://[ELASTICSEARCH-HOST]:9200/_cat/nodes``||
+| Get Cluster Settings || http://[ELASTICSEARCH-HOST]:9200/_cluster/settings |``curl -XGET http://[ELASTICSEARCH-HOST]:9200/_cluster/settings``||
+| Check Index Recovery Status || http://[ELASTICSEARCH-HOST]:9200/_cat/recovery |``curl -XGET http://[ELASTICSEARCH-HOST]:9200/_cat/recovery"``||
 | List Indexes || http://[ELASTICSEARCH-HOST]:9200/_cat/indices |``curl -XGET http://[ELASTICSEARCH-HOST]:9200/_cat/indices``||
 | List Shards || http://[ELASTICSEARCH-HOST]:9200/_cat/shards |``curl -XGET http://[ELASTICSEARCH-HOST]:9200/_cat/shards``||
 | List Shard Allocation with Reason || http://[ELASTICSEARCH-HOST]:9200/_cat/shards?h=index,shard,prirep,state,unassigned.reason |``curl -XGET http://[ELASTICSEARCH-HOST]:9200/_cat/shards?h=index,shard,prirep,state,unassigned.reason``||
