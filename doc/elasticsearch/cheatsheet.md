@@ -2,7 +2,7 @@
 
 | Option | Description |
 |--------|-------------|
-| [ELASTICSEARCH-HOST] | |
+| [ELASTICSEARCH-HOST] | If you are accessing elasticsearch on same system you can use *localhost*, which assumes that you are submitting the request locally; otherwise, replace *localhost* with your node’s IP address.|
 | [ELASTICSEARCH-PORT] | Default Elasticsearch port is *9200*. Please use port number on which Elasticsearch is listening |
 | [UPDATE-TYPE] | Settings updated can either be *persistent* (applied across restarts) or *transient* (will not survive a full cluster restart) |
 | [INDEX-NAME] | |
