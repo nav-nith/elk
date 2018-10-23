@@ -44,3 +44,7 @@
 | Enable Shard Allocation |||``curl -XPUT http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/settings -H 'Content-Type: application/json' -d '{ "[UPDATE-TYPE]": {"cluster.routing.allocation.enable": "null"}}'``||
 | Modify Shard Allocation Delay |||``curl -XPUT http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/[INDEX-NAME]/_settings' -H 'Content-Type: application/json' -d '{"settings": {"index.unassigned.node_left.delayed_timeout": "[DELAY-TIME]s"}}'``||
 
+## Template Operations
+| Operation | Description |Browser URL | Curl Command | Responce |
+| ----------|-------------|------------|--------------|----------|
+| List All templates ||http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_template?pretty|``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_template?pretty``||
