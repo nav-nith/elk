@@ -1,5 +1,14 @@
 # Elasticsearch Cheatsheet
 
+| Option | Description |
+|--------|-------------|
+| [ELASTICSEARCH-HOST] | |
+| [UPDATE-TYPE] | Settings updated can either be *persistent* (applied across restarts) or *transient* (will not survive a full cluster restart) |
+| [INDEX-NAME] | |
+| [DOC-TYPE] | |
+| [DELAY-TIME] | |
+| [REPLICA-COUNT] | |
+
 ## Cluster Operations
 | Operation | Description |Browser URL | Curl Command | Responce |
 | ----------|-------------|------------|--------------|----------|
@@ -27,11 +36,3 @@
 | Enable Shard Allocation Temporary |||``curl -XPUT http://[ELASTICSEARCH-HOST]:9200/_cluster/settings -H 'Content-Type: application/json' -d '{ "[UPDATE-TYPE]": {"cluster.routing.allocation.enable": "null"}}'``||
 | Modify Shard Allocation Delay |||``curl -XPUT http://[ELASTICSEARCH-HOST]:9200/[INDEX-NAME]/_settings' -H 'Content-Type: application/json' -d '{"settings": {"index.unassigned.node_left.delayed_timeout": "[DELAY-TIME]s"}}'``||
 
-| Option | Description |
-|--------|-------------|
-| [ELASTICSEARCH-HOST] | |
-| [UPDATE-TYPE] | Settings updated can either be *persistent* (applied across restarts) or *transient* (will not survive a full cluster restart) |
-| [INDEX-NAME] | |
-| [DOC-TYPE] | |
-| [DELAY-TIME] | |
-| [REPLICA-COUNT] | |
