@@ -10,11 +10,12 @@
 | [DELAY-TIME] | |
 | [REPLICA-COUNT] | |
 
-## System Info
+## System Operations
 | Operation | Description |Browser URL | Curl Command | Responce |
 | ----------|-------------|------------|--------------|----------|
 | Check Elasticsearch Status || http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT] |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]``||
 | Check HDD Utilization || http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/allocation?v |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/allocation?v``||
+| Set Low Disck Watermark |||``curl -XPUT http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/settings -H 'Content-Type: application/json' -d'{"transient": {"cluster.routing.allocation.disk.watermark.low": "90%"}}'``||
 
 ## Cluster Operations
 | Operation | Description |Browser URL | Curl Command | Responce |
