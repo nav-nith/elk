@@ -2,11 +2,11 @@
 
 | Option | Description |
 |--------|-------------|
-| [ELASTICSEARCH-HOST] | If you are accessing elasticsearch on same system you can use *localhost*, which assumes that you are submitting the request locally; otherwise, replace *localhost* with your node’s IP address.|
-| [ELASTICSEARCH-PORT] | Default Elasticsearch port is *9200*. Please use port number on which Elasticsearch is listening |
-| [HDD-WATERMARK] | Percentage of Hard disc at which low disck allert to be raised.Value range between 1 to 99 |
+| [ELASTICSEARCH-HOST] | IP address of system where Elasticsearch is hosted. If you are accessing elasticsearch on same system you can use *localhost*, which assumes that you are submitting the request locally; otherwise, replace *localhost* with your server IP address.|
+| [ELASTICSEARCH-PORT] | Port number on which Elasticsearch is listening. Default port is *9200* |
+| [HDD-WATERMARK] | Percentage of Hard disc at which low disc allert to be raised. Value range between 1 to 99 |
 | [UPDATE-TYPE] | Settings updated can either be *persistent* (applied across restarts) or *transient* (will not survive a full cluster restart) |
-| [INDEX-NAME] | You can use *_all* for INDEX-NAME to apply for all index  |
+| [INDEX-NAME] | Name of index on which the action to be performed. You can use *_all* to apply for all index  |
 | [DOC-TYPE] | |
 | [DOC-ID] | |
 | [DELAY-TIME] | |
@@ -21,11 +21,11 @@
 | Set Low Disc Watermark | Set percentage of HDD at which low disc allert raised | Not Supported |``curl -XPUT http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/settings -H 'Content-Type: application/json' -d'{"transient": {"cluster.routing.allocation.disk.watermark.low": "[HDD-WATERMARK]%"}}'``|
 
 ## Cluster Operations
-| Operation | Description |Browser URL | Curl Command | Responce |
-| ----------|-------------|------------|--------------|----------|
-| Check Cluster Health || http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/health?pretty |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/health?pretty``||
-| Get Cluster Nodes || http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/nodes?v |``curl XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/nodes?v``||
-| Get Cluster Settings || http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/settings?pretty |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/settings?pretty``||
+| Operation | Description |Browser URL | Curl Command |
+| ----------|-------------|------------|--------------|
+| Check Cluster Health || http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/health?pretty |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/health?pretty``|
+| Get Cluster Nodes || http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/nodes?v |``curl XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/nodes?v``|
+| Get Cluster Settings || http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/settings?pretty |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/settings?pretty``|
 
 ## Index Operations
 | Operation | Description |Browser URL | Curl Command | Responce |
