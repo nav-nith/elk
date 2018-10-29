@@ -25,21 +25,20 @@
 | ----------|-------------|------------|--------------|
 | Check Cluster Health | Provides information on Cluster health such as status, number_of_nodes, shards status, Task status etc. | http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/health?pretty |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/health?pretty``|
 | Get Cluster Nodes | List information on all nodes of the cluster | http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/nodes?v |``curl XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/nodes?v``|
-| Get Cluster Settings | Lists all persistent and transient settings of cluster | http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/settings?pretty |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/settings?pretty``|
+| Get Cluster Settings | Lists all *persistent* and *transient* settings of cluster | http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/settings?pretty |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/settings?pretty``|
 
 ## Index Operations
-| Operation | Description |Browser URL | Curl Command | Responce |
-| ----------|-------------|------------|--------------|----------|
-| Check Index Recovery Status || http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/recovery?v |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/recovery?v``||
-| List Indexes || http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/indices?v |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/indices?v``||
-| Perform Synched Flush on Indexes |Run a synced flush on all indexes| http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_flush/synced |``curl -XPOST http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_flush/synced``||
-| Delete Index/Document |||``curl -XDELETE  http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/[INDEX-NAME]/[DOC-TYPE]/[DOC-ID]``||
+| Operation | Description |Browser URL | Curl Command |
+| ----------|-------------|------------|--------------|
+| Check Index Recovery Status | View of index shard recoveries, both on-going and previously completed| http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/recovery?v |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/recovery?v``||
+| List Indexes | Provides a cross-section of each index | http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/indices?v |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/indices?v``|
+| Perform Synched Flush on Indexes |Run a synced flush on all indexes| http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_flush/synced |``curl -XPOST http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_flush/synced``|
+| Delete Index/Document |Delete any specific index or documet| Not Supported |``curl -XDELETE  http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/[INDEX-NAME]/[DOC-TYPE]/[DOC-ID]``|
 
 ## Shard Operations
 | Operation | Description |Browser URL | Curl Command | Responce |
 | ----------|-------------|------------|--------------|----------|
-| List Shards || http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/shards?v |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/shards?v``||
-| List Shard Allocation with Reason || http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/shards?h=index,shard,prirep,state,unassigned.reason |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/shards?h=index,shard,prirep,state,unassigned.reason``||
+| List Shard Allocation with Reason || http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/shards?v&h=index,shard,prirep,state,unassigned.reason |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/shards?v&h=index,shard,prirep,state,unassigned.reason``||
 | Get Detailed on Shard Allocation issues |Explain why a shard is unallocated| http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/allocation/explain?pretty |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/allocation/explain?pretty``||
 | Manage Number of Shards per Index |||``curl -XPUT http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/[INDEX-NAME]/_settings -H 'Content-Type: application/json' -d '{"number_of_shards": [SHARDS-COUNT]}'``||
 | Manage Number of Shard Replicas |||``curl -XPUT http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/[INDEX-NAME]/_settings -H 'Content-Type: application/json' -d '{"number_of_replicas": [REPLICA-COUNT]}'``||
