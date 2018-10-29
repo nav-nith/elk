@@ -19,6 +19,7 @@
 | Check Elasticsearch Status | Lists status of Elastisearch cluster with ES Version, Lucanace Version, information on compatibility with previous ES versions etc. | http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT] |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]``|
 | Check Resource Utilization | List inforation on shards, disk usage, host and node ip | http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/allocation?v |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/allocation?v``|
 | Set Low Disc Watermark | Set percentage of HDD at which low disc allert raised | Not Supported |``curl -XPUT http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/settings -H 'Content-Type: application/json' -d'{"transient": {"cluster.routing.allocation.disk.watermark.low": "[HDD-WATERMARK]%"}}'``|
+|Set TransLog Size |Set Transaction Logs size which defines the write buffer flush |Not Supported|``curl -XPUT http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/[INDEX-NAME]/_settings -H 'Content-Type: application/json' -d '{ "index": {"translog.flush_threshold_size": "[TRANSLOG-SIZE]"}}'``|
 
 ## Cluster Operations
 | Operation | Description |Browser URL | Curl Command |
