@@ -4,6 +4,7 @@
 |--------|-------------|
 | [ELASTICSEARCH-HOST] | If you are accessing elasticsearch on same system you can use *localhost*, which assumes that you are submitting the request locally; otherwise, replace *localhost* with your node’s IP address.|
 | [ELASTICSEARCH-PORT] | Default Elasticsearch port is *9200*. Please use port number on which Elasticsearch is listening |
+| [HDD-WATERMARK] | Percentage of Hard disc at which low disck allert to be raised.Value range between 1 to 99 |
 | [UPDATE-TYPE] | Settings updated can either be *persistent* (applied across restarts) or *transient* (will not survive a full cluster restart) |
 | [INDEX-NAME] | You can use *_all* for INDEX-NAME to apply for all index  |
 | [DOC-TYPE] | |
@@ -15,9 +16,9 @@
 ## System Operations
 | Operation | Description |Browser URL | Curl Command |
 | ----------|-------------|------------|--------------|
-| Check Elasticsearch Status |Lists High level status of Elastisearch Cluster including ES Version, Lucanace Version Compatibility with Previous ES versions etc.| http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT] |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]``|
-| Check HDD Utilization || http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/allocation?v |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/allocation?v``|
-| Set Low Disck Watermark |||``curl -XPUT http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/settings -H 'Content-Type: application/json' -d'{"transient": {"cluster.routing.allocation.disk.watermark.low": "90%"}}'``|
+| Check Elasticsearch Status | Lists status of Elastisearch cluster with ES Version, Lucanace Version, information on compatibility with previous ES versions etc. | http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT] |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]``|
+| Check Resource Utilization | List inforation on shards, disk usage, host and node ip | http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/allocation?v |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/allocation?v``|
+| Set Low Disc Watermark | Set percentage of HDD at which low disc allert raised | Not Supported |``curl -XPUT http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/settings -H 'Content-Type: application/json' -d'{"transient": {"cluster.routing.allocation.disk.watermark.low": "[HDD-WATERMARK]%"}}'``|
 
 ## Cluster Operations
 | Operation | Description |Browser URL | Curl Command | Responce |
