@@ -10,7 +10,7 @@
 | [DOC-TYPE] | *_type* system field of a document to elasticsearch. Generally the value will be of type *doc* |
 | [DOC-ID] | *_id* system field of a document entry to elasticsearch. ES generates unique key for each entry unless explicitly specified |
 | [DELAY-TIME] | |
-| [SHARDS-COUNT]| |
+| [SHARDS-COUNT]|  |
 | [REPLICA-COUNT] | |
 
 ## System Operations
@@ -45,8 +45,8 @@
 | Manage Number of Shard Replicas |Set the number of replicas of shards to create across nodes. The replicas help in recovery of data in cse of any node goes down |Not Supported|``curl -XPUT http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/[INDEX-NAME]/_settings -H 'Content-Type: application/json' -d '{"number_of_replicas": [REPLICA-COUNT]}'``|
 | Disable Shard Allocation | Disable shard allocation to cluster. When Allocation is disabled, the index will be created for new data pushed to ES but will not be allocated to cluster. This operations helps to speedup the ES start time.|Not Supported|``curl -XPUT http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/settings -H 'Content-Type: application/json' -d '{ "[UPDATE-TYPE]": {"cluster.routing.allocation.enable": "none"}}'``|
 | Enable Shard Allocation | Enables Shard Allocation to cluster to ensure new index created are searchable. For ES to work properly, you must keep this enabled|Not Supported|``curl -XPUT http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/settings -H 'Content-Type: application/json' -d '{ "[UPDATE-TYPE]": {"cluster.routing.allocation.enable": "primaries"}}'``|
-| Modify Shard Allocation Delay |The allocation of replica shards which become unassigned because a node has left can be delayed with the index.unassigned.node_left.delayed_timeout dynamic setting, which defaults to 1m|Not Supported|``curl -XPUT http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/[INDEX-NAME]/_settings' -H 'Content-Type: application/json' -d '{"settings": {"index.unassigned.node_left.delayed_timeout": "[DELAY-TIME]s"}}'``|
-|Reroute Shards||Not Supported|curl -XPOST http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]|
+| Modify Shard Allocation Delay |The allocation of replica shards which become unassigned because a node has left can be delayed with the index.unassigned.node_left.delayed_timeout dynamic setting, which defaults to 1m|Not Supported|``curl -XPUT http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/[INDEX-NAME]/_settings -H 'Content-Type: application/json' -d '{"settings": {"index.unassigned.node_left.delayed_timeout": "[DELAY-TIME]s"}}'``|
+|Reroute Shards|Manually migrate shards from a node to new empty primary shard|Not Supported|``curl -XPOST http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]|_cluster/reroute -H 'Content-Type: application/json' -d '{"commands": [{"allocate_empty_primary": {"index": "index - 1", "shard": [SHARDS-COUNT],"node": "[NODE-ID]","accept_data_loss": true } }] }'``|
 
 ## Template Operations
 | Operation | Description |Browser URL | Curl Command |
