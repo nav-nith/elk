@@ -48,6 +48,7 @@
 | Modify Shard Allocation Delay |The allocation of replica shards which become unassigned because a node has left can be delayed with the index.unassigned.node_left.delayed_timeout dynamic setting, which defaults to 1m|Not Supported|``curl -XPUT http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/[INDEX-NAME]/_settings -H 'Content-Type: application/json' -d '{"settings": {"index.unassigned.node_left.delayed_timeout": "[DELAY-TIME]s"}}'``|
 |Reroute Shards|Manually migrate shards from a node to new empty primary shard|Not Supported|``curl -XPOST http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]|_cluster/reroute -H 'Content-Type: application/json' -d '{"commands": [{"allocate_empty_primary": {"index": "index - 1", "shard": [SHARDS-COUNT],"node": "[NODE-ID]","accept_data_loss": true } }] }'``|
 
+
 ## Template Operations
 | Operation | Description |Browser URL | Curl Command |
 | ----------|-------------|------------|--------------|
