@@ -7,8 +7,8 @@
 | [HDD-WATERMARK] | Percentage of Hard disc at which low disc allert to be raised. Value range between 1 to 99 |
 | [UPDATE-TYPE] | Settings updated can either be *persistent* (applied across restarts) or *transient* (will not survive a full cluster restart) |
 | [INDEX-NAME] | Name of index on which the action to be performed. You can use *_all* to apply for all index  |
-| [DOC-TYPE] | |
-| [DOC-ID] | |
+| [DOC-TYPE] | *_type* system field of a document to elasticsearch. Generally the value will be of type *doc* |
+| [DOC-ID] | *_id* system field of a document entry to elasticsearch. ES generates unique key for each entry unless explicitly specified |
 | [DELAY-TIME] | |
 | [SHARDS-COUNT]| |
 | [REPLICA-COUNT] | |
