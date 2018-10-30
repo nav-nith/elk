@@ -46,6 +46,7 @@
 | Disable Shard Allocation | Disable shard allocation to cluster. When Allocation is disabled, the index will be created for new data pushed to ES but will not be allocated to cluster. This operations helps to speedup the ES start time.|Not Supported|``curl -XPUT http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/settings -H 'Content-Type: application/json' -d '{ "[UPDATE-TYPE]": {"cluster.routing.allocation.enable": "none"}}'``|
 | Enable Shard Allocation | Enables Shard Allocation to cluster to ensure new index created are searchable. For ES to work properly, you must keep this enabled|Not Supported|``curl -XPUT http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cluster/settings -H 'Content-Type: application/json' -d '{ "[UPDATE-TYPE]": {"cluster.routing.allocation.enable": "primaries"}}'``|
 | Modify Shard Allocation Delay |The allocation of replica shards which become unassigned because a node has left can be delayed with the index.unassigned.node_left.delayed_timeout dynamic setting, which defaults to 1m|Not Supported|``curl -XPUT http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/[INDEX-NAME]/_settings' -H 'Content-Type: application/json' -d '{"settings": {"index.unassigned.node_left.delayed_timeout": "[DELAY-TIME]s"}}'``|
+|Reroute Shards||Not Supported|curl -XPOST http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]|
 
 ## Template Operations
 | Operation | Description |Browser URL | Curl Command |
