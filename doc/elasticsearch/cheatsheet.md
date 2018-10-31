@@ -34,7 +34,7 @@
 | Check Index Recovery Status | View of index shard recoveries, both on-going and previously completed| http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/recovery?v |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/recovery?v``||
 | List Indexes | Provides a cross-section of each index | http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/indices?v |``curl -XGET http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_cat/indices?v``|
 | Perform Synched Flush on Indexes |Run a synced flush on all indexes| http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_flush/synced |``curl -XPOST http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/_flush/synced``|
-| Delete Index/Document |Delete all/any specific index or documet| Not Supported |``curl -XDELETE  http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/[INDEX-NAME]/[DOC-TYPE]/[DOC-ID]``|
+| Delete Index/Document |Delete all/any specific index or documet. In case of special charecters in index name, you need to use unicode value of the same. Example: string for %{test} will be %25%7Btest%7D | Not Supported |``curl -XDELETE  http://[ELASTICSEARCH-HOST]:[ELASTICSEARCH-PORT]/[INDEX-NAME]/[DOC-TYPE]/[DOC-ID]``|
 
 ## Shard Operations
 | Operation | Description |Browser URL | Curl Command |
